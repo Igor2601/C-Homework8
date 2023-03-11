@@ -34,7 +34,7 @@ void PrintArray(int[,] array)
         WriteLine();
     }
 }
-int RowsSum(int[,] array)
+int MinRowsSum(int[,] array)
 {
     int sum = 0;
     int[] result = new int[array.GetLength(0)];
@@ -54,4 +54,4 @@ int RowsSum(int[,] array)
     }
 return minindex;
 }
-Write($"Номер строки с наименьшей суммой элементов: {RowsSum(array)+1} строка");
+Write($"Номер строки с наименьшей суммой элементов: {MinRowsSum(array)+1} строка");
