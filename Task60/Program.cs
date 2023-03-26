@@ -28,13 +28,32 @@ int[,,] GetArray(int x, int y, int z, int min, int max)
     {
         for (int j = 0; j < y; j++)
         {
-            for (int k = 0; k < z; k++)
+          int k = 0;
+          while(k < result.GetLength(2))
             {
-            result[i, j, k] = new Random().Next(min, max + 1);
+              int element=new Random().Next(min, max + 1);
+              if(FindElement(result,element))continue;
+              result[i, j, k] = element;
+              k++;
             }
         }
     }
     return result;
+}
+bool FindElement(int[,,] array, int el)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                if(array[i, j, k]==el)
+                return true;
+            }
+        }
+    }
+    return false;
 }
 void PrintArray (int[,,] array3D)
 {
